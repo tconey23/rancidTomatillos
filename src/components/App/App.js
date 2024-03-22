@@ -1,11 +1,11 @@
 import '../App/App.css';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Movies from '../Movies/Movies'
 import MovieDetails from '../MovieDetails/MovieDetails'
 import movieData from '../../data/movieData'
 
 function App() {
-  const [movies, setMovies] = useState(movieData.movies)
+  const [movies, setMovies] = useState([])
   const [selectedMovie, setSelectedMovie] = useState()
 
   function showDetails(id) {
@@ -14,6 +14,17 @@ function App() {
     })
     setSelectedMovie(clickedMovie)
   }
+
+  function getMovies() {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(resp => resp.json())
+    .then(data => setMovies(data.movies))
+  }
+
+  useEffect(() => {
+    getMovies()
+  }, [])
+
 
   return (
     <main className="App">
