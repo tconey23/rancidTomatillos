@@ -1,7 +1,7 @@
 import Icon from '../Icons/Icons'
 
 
-function Movies ( { movies } ) {
+function Movies ( { movies, showDetails } ) {
     const movieIcons = movies.map(movie => {
         return (
             <Icon 
@@ -9,6 +9,7 @@ function Movies ( { movies } ) {
                 id={movie.id}
                 key={movie.id}
                 poster={movie.poster_path}
+                showDetails={showDetails}
             />
         )  
     })
