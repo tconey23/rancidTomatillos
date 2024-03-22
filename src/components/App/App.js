@@ -8,17 +8,13 @@ function App() {
   const [movies, setMovies] = useState([])
   const [selectedMovie, setSelectedMovie] = useState()
 
-  function showDetails(id) {
-    getMovieDetails(id)
-  }
-
   function getMovies() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(resp => resp.json())
     .then(data => setMovies(data.movies))
   }
   
-  function getMovieDetails(id) {
+  function showDetails (id) {
     fetch (`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
     .then(resp => resp.json())
     .then((data) => {
