@@ -1,18 +1,17 @@
 
 import './Icons.css'
 
-function Icons(props) {
+function Icons({ id, title, poster, showDetails }) {
     return (
             <a onClick={(event) => {
                 event.preventDefault()
-                props.showDetails(props.id)
+                showDetails(id)
             }}
             href="">
-                <h3>{props.title}</h3>
-                <img src={props.poster}/>
+                <h3>{title}</h3>
+                <img src={poster}/>
             </a>
     )
 }
-
 
 export default Icons
