@@ -9,10 +9,7 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState()
 
   function showDetails(id) {
-    const clickedMovie = movies.find((movie) => {
-      return movie.id === id
-    })
-    setSelectedMovie(clickedMovie)
+    getMovieDetails(id)
   }
 
   function getMovies() {
@@ -20,11 +17,19 @@ function App() {
     .then(resp => resp.json())
     .then(data => setMovies(data.movies))
   }
+  
+  function getMovieDetails(id) {
+    fetch (`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+    .then(resp => resp.json())
+    .then((data) => {
+      setSelectedMovie(data.movie)
+   })
+  }
 
   useEffect(() => {
     getMovies()
   }, [])
-
+  
 
   return (
     <main className="App">
