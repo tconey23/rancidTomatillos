@@ -1,6 +1,6 @@
 import './MovieDetails.css'
 
-function MovieDetails ({ selectedMovie }) { 
+function MovieDetails ({ selectedMovie }) {  
     const {
         title,
         poster_path,
