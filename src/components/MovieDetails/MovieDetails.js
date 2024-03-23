@@ -29,7 +29,7 @@ function MovieDetails ({ selectedMovie }) {
         let formattedDate = ''
         const splitDate = date.split('-')
         console.log(splitDate)
-        formattedDate = `${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`
+        // formattedDate = `${splitDate[1]}/${splitDate[2]}/${splitDate[0]}` 
 
         return formattedDate
     }

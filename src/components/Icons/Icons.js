@@ -1,7 +1,7 @@
 
-import './Icons.css'
+import './Icons.css'  
 
-function Icons({ id, title, poster, showDetails }) {
+function Icons(props) {
     return (
             <a onClick={(event) => {
                 event.preventDefault()
@@ -9,7 +9,7 @@ function Icons({ id, title, poster, showDetails }) {
             }}
             href="">
                 <h3>{title}</h3>
-                <img src={poster}/>
+                <img className="imageCard" src={poster}/>
             </a>
     )
 }
