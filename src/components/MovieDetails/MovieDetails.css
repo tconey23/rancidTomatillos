@@ -13,10 +13,12 @@
 
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    border: 4px outset #bfb3b3;
+    width: 80%;
+    border-radius: 20px;
+    box-shadow: black 7px 7px 20px 7px;
   }
 
   img {

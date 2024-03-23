@@ -4,23 +4,36 @@
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
     justify-items: center;
-        a{
-            width: 200px;
-            &:hover{
-                perspective: 200px;
-            }
-        }
-            img {
-            width: 200px;
-            height: 230px;
-            border-radius: 10px;
-            box-shadow: black 5px 9px 18px;
-            &:hover{
-                position: relative;
-                top: -19px;
-                transform: rotateX(10deg); 
-                transform-origin: center bottom; 
-            }
-        }
-        
-  }
+}
+
+.icons-container a {
+    perspective: 200px;
+    width: 200px;
+    display: inline-block;
+    transition: perspective 2s ease
+}
+
+.icons-container a img {
+    box-shadow: black 5px 9px 18px;
+    position: relative;
+    top: -19px;
+    transform: rotateX(10deg); 
+    transform-origin: center bottom;
+    width: 200px;
+    height: 230px;
+    border-radius: 10px;
+    margin-top: 15px;
+    transition: box-shadow 2s ease;
+}
+
+.icons-container a:hover {
+    perspective: 10000px;
+}
+
+.icons-container a:not(:hover) {
+    perspective: 200px;
+}
+
+.icons-container a:hover img {
+    box-shadow: black 2px -3px 20px 5px;
+}

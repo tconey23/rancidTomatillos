@@ -8,8 +8,8 @@ function Icons(props) {
                 props.showDetails(props.id)
             }}
             href="">
-                <h3>{props.title}</h3>
                 <img src={props.poster}/>
+                <h3>{props.title}</h3>
             </a>
     )
 }
