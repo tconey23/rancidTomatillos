@@ -1,6 +1,6 @@
 import './ErrorHandling.css'
 
-function ErrorHandling( {serverError} ) {
+function ErrorHandling( {serverError} ) {  
 
     const userMessage = `We're sorry! An unexpected error has ocurred while ${serverError[0]}\n  
                             Please try again later`

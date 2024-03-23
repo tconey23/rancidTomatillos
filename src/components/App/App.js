@@ -2,7 +2,7 @@ import '../App/App.css';
 import { useEffect, useState } from 'react'
 import Movies from '../Movies/Movies'
 import MovieDetails from '../MovieDetails/MovieDetails'
-import ErrorHandling from './ErrorHandling'
+import ErrorHandling from './ErrorHandling' 
 
 function App() {
   const [movies, setMovies] = useState([])
