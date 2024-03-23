@@ -27,9 +27,15 @@ function App() {
    .catch(err => {setError(['displaying your movie', err])})
   }
 
+  function hideDetails() {
+    setSelectedMovie('');
+  }
+
+
   useEffect(() => { 
     getMovies()
   }, [])
+
   
   return (
     <main className="App">
@@ -41,6 +47,7 @@ function App() {
       {selectedMovie &&
         <MovieDetails 
           selectedMovie={selectedMovie}
+          hideDetails={hideDetails}
       />}
       {serverError &&
         <ErrorHandling

@@ -1,7 +1,7 @@
 
-import './Icons.css'  
+import './Icons.css'
 
-function Icons(props) {
+function Icons({ id, title, poster, showDetails }) {
     return (
             <a onClick={(event) => {
                 event.preventDefault()
