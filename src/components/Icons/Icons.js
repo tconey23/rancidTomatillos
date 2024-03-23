@@ -1,5 +1,5 @@
 
-import './Icons.css'
+import './Icons.css' 
 
 function Icons({ id, title, poster, showDetails }) {
     return (

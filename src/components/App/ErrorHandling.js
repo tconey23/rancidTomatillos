@@ -2,7 +2,7 @@ import './ErrorHandling.css'
 
 function ErrorHandling( {serverError} ) {
 
-    const userMessage = `We're sorry! An unexpected error has ocurred while ${serverError[0]}\n
+    const userMessage = `We're sorry! An unexpected error has ocurred while ${serverError[0]}\n 
                             Please try again later`
     const devMessage = `Error detail: ${serverError[1]}`
         return (

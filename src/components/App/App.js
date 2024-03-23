@@ -27,7 +27,7 @@ function App() {
    .catch(err => {setError(['displaying your movie', err])})
   }
 
-  useEffect(() => {
+  useEffect(() => { 
     getMovies()
   }, [])
   
