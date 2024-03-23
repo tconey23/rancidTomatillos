@@ -1,4 +1,5 @@
 import './MovieDetails.css'
+import PropTypes from 'prop-types';
 
 function MovieDetails ({ selectedMovie }) {
     const {

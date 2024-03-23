@@ -1,4 +1,5 @@
 import Icon from '../Icons/Icons'
+import PropTypes from 'prop-types';
 
 
 function Movies ( { movies, showDetails } ) {
