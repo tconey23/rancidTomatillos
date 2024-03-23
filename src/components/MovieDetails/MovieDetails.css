@@ -36,7 +36,7 @@
   }
 
   .modal-content h3 {
-    margin-top: 0;
+    margin-top: 5px;
     margin-bottom: 15px;
     font-style: italic;
   }
@@ -53,4 +53,8 @@
   .overview {
     font-style: italic;
     margin-bottom: 15px !important;
+  }
+
+  span {
+    font-weight: bold;
   }
