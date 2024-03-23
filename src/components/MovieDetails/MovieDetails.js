@@ -1,6 +1,6 @@
 import './MovieDetails.css'
 
-function MovieDetails ({ selectedMovie }) {  
+function MovieDetails ({ selectedMovie }) {
     const {
         title,
         poster_path,
@@ -28,6 +28,7 @@ function MovieDetails ({ selectedMovie }) {
     function formatDate(date) {
         let formattedDate = ''
         const splitDate = date.split('-')
+        console.log(splitDate)
         formattedDate = `${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`
 
         return formattedDate

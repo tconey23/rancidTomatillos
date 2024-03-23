@@ -41,6 +41,11 @@
     font-style: italic;
   }
 
+  .movie-details {
+    /* display: flex; */
+    /* text-align: left; */
+  }
+
   .details--stats {
     margin-right: 15px;
   }
