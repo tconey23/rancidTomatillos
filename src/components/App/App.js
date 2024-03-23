@@ -36,9 +36,7 @@ function App() {
       />
       {selectedMovie &&
         <MovieDetails 
-          title={selectedMovie.title}
-          poster={selectedMovie.poster_path}
-          backdrop={selectedMovie.backdrop_path}
+          selectedMovie={selectedMovie}
       />}
 
     </main>
