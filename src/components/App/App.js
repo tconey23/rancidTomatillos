@@ -6,7 +6,6 @@ import ErrorHandling from './ErrorHandling'
 
 function App() {
   const [movies, setMovies] = useState([])
-  const [movies, setMovies] = useState([])
   const [selectedMovie, setSelectedMovie] = useState()
   const [serverError, setError] = useState()
 
