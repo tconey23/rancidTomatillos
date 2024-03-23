@@ -51,6 +51,7 @@ function MovieDetails ({ selectedMovie }) {
                         <p><span>Budget: </span>${budget}</p>
                         <p><span>Runtime: </span>{runtime} mins</p>
                         <p><span>Rating: </span>{average_rating}</p>
+                        <p><span>Revenue: </span>${revenue}</p>
                     </div>
                     
                 </div>
