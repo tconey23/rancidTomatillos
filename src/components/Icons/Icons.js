@@ -1,19 +1,17 @@
 
 import './Icons.css'
 
-function Icons(props) {
+function Icons({ id, title, poster, showDetails }) {
     return (
             <a onClick={(event) => {
                 event.preventDefault()
-                props.showDetails(props.id)
+                showDetails(id)
             }}
             href="">
-                <img className="imageCard" src={props.poster}/>
-                <h3>{props.title}</h3>
-                <img className="imageOverlay" src={props.poster}/>
+                <h3>{title}</h3>
+                <img className="imageCard" src={poster}/>
             </a>
     )
 }
-
 
 export default Icons

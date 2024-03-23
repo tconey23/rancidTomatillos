@@ -1,20 +1,36 @@
 import '../App/App.css';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Movies from '../Movies/Movies'
 import MovieDetails from '../MovieDetails/MovieDetails'
-import movieData from '../../data/movieData'
+import ErrorHandling from './ErrorHandling'
 
 function App() {
-  const [movies, setMovies] = useState(movieData.movies)
+  const [movies, setMovies] = useState([])
   const [selectedMovie, setSelectedMovie] = useState()
+  const [serverError, setError] = useState()
 
-  function showDetails(id) {
-    const clickedMovie = movies.find((movie) => {
-      return movie.id === id
-    })
-    setSelectedMovie(clickedMovie)
+  function getMovies() {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(resp => resp.json())
+    .then(data => setMovies(data.movies))
+    // .then(response => {throw new Error('Simulated 500 level error')})
+    .catch(err => {setError(['loading the page', err])})
+  }
+  
+  function showDetails (id) {
+    fetch (`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+    .then(resp => resp.json())
+    .then((data) => {
+      setSelectedMovie(data.movie)
+   })
+  //  .then(response => {throw new Error('Simulated 500 level error')})
+   .catch(err => {setError(['displaying your movie', err])})
   }
 
+  useEffect(() => {
+    getMovies()
+  }, [])
+  
   return (
     <main className="App">
       <h1>Rancid Tomatillos</h1>
@@ -24,10 +40,13 @@ function App() {
       />
       {selectedMovie &&
         <MovieDetails 
-          title={selectedMovie.title}
-          poster={selectedMovie.poster_path}
-          backdrop={selectedMovie.backdrop_path}
+          selectedMovie={selectedMovie}
       />}
+      {serverError &&
+        <ErrorHandling
+          serverError={serverError}
+        />
+      }
 
     </main>
   )

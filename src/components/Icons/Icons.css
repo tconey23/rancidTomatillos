@@ -37,10 +37,3 @@
 .icons-container a:hover .imageCard {
     box-shadow: black 2px -3px 20px 5px;
 }
-
-.imageOverlay{
-    position: absolute;
-    top:0;
-    left: 0;
-    /* opacity: 0; */
-}
