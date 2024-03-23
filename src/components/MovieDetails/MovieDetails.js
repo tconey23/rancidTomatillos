@@ -61,4 +61,24 @@ function MovieDetails ({ selectedMovie }) {
     )
 }
 
+MovieDetails.propTypes = {
+    selectedMovie: PropTypes.shape({
+        title: PropTypes.string,
+        poster_path: PropTypes.string,
+        backdrop_path: PropTypes.string,
+        release_date: PropTypes.string,
+        overview: PropTypes.string,
+        genres: PropTypes.array,
+        budget: PropTypes.number,
+        revenue: PropTypes.number,
+        runtime: PropTypes.number,
+        tagline: PropTypes.string,
+        average_rating: PropTypes.number
+    })
+}
+
+// note: you have to wrap selectedMovie around all of the properties 
+// because it is an object. It wont work without the PropTypes.shape()
+
+
 export default MovieDetails
