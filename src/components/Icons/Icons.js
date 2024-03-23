@@ -14,5 +14,12 @@ function Icons({ id, title, poster, showDetails }) {
     )
 }
 
+Icons.propTypes = {
+    id: PropTypes.number,
+    title: PropTypes.string,
+    poster: PropTypes.string,
+    showDetails: PropTypes.func
+}
+
 export default Icons
 
