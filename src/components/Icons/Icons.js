@@ -9,7 +9,7 @@ function Icons({ id, title, poster, showDetails }) {
             }}
             href="">
                 <h3>{title}</h3>
-                <img src={poster}/>
+                <img className="imageCard" src={poster}/>
             </a>
     )
 }
