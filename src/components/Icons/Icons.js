@@ -1,5 +1,5 @@
-
 import './Icons.css'
+import PropTypes from 'prop-types';
 
 function Icons({ id, title, poster, showDetails }) {
     return (
@@ -14,4 +14,12 @@ function Icons({ id, title, poster, showDetails }) {
     )
 }
 
+Icons.propTypes = {
+    id: PropTypes.number,
+    title: PropTypes.string,
+    poster: PropTypes.string,
+    showDetails: PropTypes.func
+}
+
 export default Icons
+
