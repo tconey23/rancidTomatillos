@@ -33,4 +33,7 @@ Movies.propTypes = {
     showDetails: PropTypes.func.isRequired
 }
 
+console.log('test')
+
 export default Movies
+
