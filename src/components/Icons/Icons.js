@@ -21,5 +21,7 @@ Icons.propTypes = {
     showDetails: PropTypes.func
 }
 
+console.log('test')
+
 export default Icons
 
