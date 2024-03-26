@@ -7,7 +7,7 @@ function MovieDetails (/*{ selectedMovie, hideDetails }*/) {
     
     const id = useParams().id
     const [selectedMovie, setSelectedMovie] = useState()
-
+    let fin
     // console.log(useParams(), id)
 
     // showDetails(id)
@@ -19,13 +19,16 @@ function MovieDetails (/*{ selectedMovie, hideDetails }*/) {
           setSelectedMovie(data.movie)
           console.log(data)
        })
+       .then(fin => fin = setDetails())
        .catch(err => {})
       }
+
+      console.log(fin)
 
     useEffect(() => { 
         console.log('made it')
         showDetails(id)
-        setDetails()
+
       }, []) 
 
 
@@ -57,13 +60,13 @@ const setDetails = () => {
     }, "")
 
     function formatDate(date) {
-        let formattedDate = ''
+        // let formattedDate = ''
         const splitDate = date.split('-')
         console.log(splitDate)
         // formattedDate = `${splitDate[1]}/${splitDate[2]}/${splitDate[0]}` 
 
-        return formattedDate
-    }
+        // return formattedDate
+    
 
 
     const formattedDate = formatDate(selectedMovie.release_date)
@@ -78,7 +81,7 @@ const setDetails = () => {
                     <div className="movie-details">
                         <p className="overview">{selectedMovie.overview}</p>
                         <div className="details--stats">
-                            <p><span>Release Date: </span>{formattedDate}</p>
+                            <p><span>Release Date: </span>{}</p>
                             <p><span>Genres: </span>{genreList}</p>
                             <p><span>Budget: </span>${selectedMovie.budget}</p>
                             <p><span>Runtime: </span>{selectedMovie.runtime} mins</p>
@@ -89,7 +92,7 @@ const setDetails = () => {
                 </div>
             </div>
     );
-   
+   }
 }
 
 // MovieDetails.propTypes = {
