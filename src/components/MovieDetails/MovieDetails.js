@@ -1,23 +1,52 @@
 import './MovieDetails.css'
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-function MovieDetails ({ selectedMovie, hideDetails }) {
+function MovieDetails (/*{ selectedMovie, hideDetails }*/) {
     
-    const {
-        title,
-        poster_path,
-        backdrop_path,
-        release_date,
-        overview,
-        genres,
-        budget,
-        revenue,
-        runtime,
-        tagline,
-        average_rating
-    } = selectedMovie
+    const id = useParams().id
+    const [selectedMovie, setSelectedMovie] = useState()
 
-    const genreList = genres.reduce((acc, genre) => {
+    // console.log(useParams(), id)
+
+    // showDetails(id)
+
+    function showDetails (id) {
+        fetch (`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+        .then(resp => resp.json())
+        .then((data) => {
+          setSelectedMovie(data.movie)
+          console.log(data)
+       })
+       .catch(err => {})
+      }
+
+    useEffect(() => { 
+        console.log('made it')
+        showDetails(id)
+        setDetails()
+      }, []) 
+
+
+
+    // const {
+    //     title,
+    //     poster_path,
+    //     backdrop_path,
+    //     release_date,
+    //     overview,
+    //     genres,
+    //     budget,
+    //     revenue,
+    //     runtime,
+    //     tagline,
+    //     average_rating
+    // } = selectedMovie
+
+
+const setDetails = () => {
+    const genreList = selectedMovie.genres.reduce((acc, genre) => {
         if (!acc) {
             acc = genre;
         } else {
@@ -37,46 +66,47 @@ function MovieDetails ({ selectedMovie, hideDetails }) {
     }
 
 
-    const formattedDate = formatDate(release_date)
-    
+    const formattedDate = formatDate(selectedMovie.release_date)
 
+ }
     return (
-            <div className="modal" onClick={hideDetails}>
+            <div className="modal">
                 <div className="modal-content">
-                    <img src={backdrop_path} alt="Backdrop"></img>
-                    <h2>{title}</h2>
-                    <h3>"{tagline}"</h3>
+                    <img src={selectedMovie.backdrop_path} alt="Backdrop"></img>
+                    <h2>{selectedMovie.title}</h2>
+                    <h3>"{selectedMovie.tagline}"</h3>
                     <div className="movie-details">
-                        <p className="overview">{overview}</p>
+                        <p className="overview">{selectedMovie.overview}</p>
                         <div className="details--stats">
                             <p><span>Release Date: </span>{formattedDate}</p>
                             <p><span>Genres: </span>{genreList}</p>
-                            <p><span>Budget: </span>${budget}</p>
-                            <p><span>Runtime: </span>{runtime} mins</p>
-                            <p><span>Rating: </span>{average_rating}</p>
-                            <p><span>Revenue: </span>${revenue}</p>
+                            <p><span>Budget: </span>${selectedMovie.budget}</p>
+                            <p><span>Runtime: </span>{selectedMovie.runtime} mins</p>
+                            <p><span>Rating: </span>{selectedMovie.average_rating}</p>
+                            <p><span>Revenue: </span>${selectedMovie.revenue}</p>
                         </div>
                     </div>
                 </div>
             </div>
     );
+   
 }
 
-MovieDetails.propTypes = {
-    selectedMovie: PropTypes.shape({
-        title: PropTypes.string,
-        poster_path: PropTypes.string,
-        backdrop_path: PropTypes.string,
-        release_date: PropTypes.string,
-        overview: PropTypes.string,
-        genres: PropTypes.array,
-        budget: PropTypes.number,
-        revenue: PropTypes.number,
-        runtime: PropTypes.number,
-        tagline: PropTypes.string,
-        average_rating: PropTypes.number
-    })
-}
+// MovieDetails.propTypes = {
+//     selectedMovie: PropTypes.shape({
+//         title: PropTypes.string,
+//         poster_path: PropTypes.string,
+//         backdrop_path: PropTypes.string,
+//         release_date: PropTypes.string,
+//         overview: PropTypes.string,
+//         genres: PropTypes.array,
+//         budget: PropTypes.number,
+//         revenue: PropTypes.number,
+//         runtime: PropTypes.number,
+//         tagline: PropTypes.string,
+//         average_rating: PropTypes.number
+//     })
+// }
 
 // note: you have to wrap selectedMovie around all of the properties 
 // because it is an object. It wont work without the PropTypes.shape()
