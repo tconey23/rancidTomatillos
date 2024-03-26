@@ -7,7 +7,7 @@ function ErrorHandling( {serverError} ) {
     const devMessage = `Error detail: ${serverError[1]}`
         return (
             <>
-                <div className="errorModal">
+                <div className="error-modal">
                     <div>
                         <h3>{userMessage}</h3>
                         <p>{devMessage}</p>
