@@ -36,4 +36,43 @@ describe('home page', () => {
       .get('a')
       .should('exist', '.image-card')
     })
+
+    it('should display an error message when fetch fails', () => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+        statusCode: 500
+    })
+    .get('.error-modal')
+    .contains('h3', "We're sorry!")
+  })
+
+  it('should display a specific movie\'s details when clicked', () => {
+    cy.get('a')
+    .contains('h3', 'Money Plane')
+    .click()
+    .intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+        statusCode: 200,
+        body: {
+          "movie": {
+              "id": 694919,
+              "title": "Money Plane",
+              "poster_path": "https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
+              "backdrop_path": "https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
+              "release_date": "2022-10-19",
+              "overview": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
+              "genres": [
+                  "Action",
+                  "Fantasy",
+                  "Science Fiction"
+              ],
+              "budget": 200000000,
+              "revenue": 384571691,
+              "runtime": 125,
+              "tagline": "The world needed a hero. It got Black Adam.",
+              "average_rating": 4
+          }
+      }
+    })
+    .get('.modal-content')
+    .contains('h2', 'Money Plane') 
+  })
 })
