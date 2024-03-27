@@ -1,5 +1,8 @@
 import Icon from '../Icons/Icons'
 import PropTypes from 'prop-types';
+import { Outlet } from 'react-router-dom'
+import MovieDetails from '../MovieDetails/MovieDetails';
+import ErrorHandling from '../ErrorHandling/ErrorHandling';
 
 
 function Movies ( { movies } ) {
@@ -16,9 +19,13 @@ function Movies ( { movies } ) {
     })
     
     return (
-        <div className='icons-container'>
-            {movieIcons}
-        </div>
+        <>
+            <div className='icons-container'>
+                {movieIcons}
+            </div>
+            <Outlet />
+            {/* <Outlet name={<ErrorHandling />}/> */}
+        </>
     )
 }
 
