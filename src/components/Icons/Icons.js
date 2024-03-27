@@ -6,7 +6,7 @@ function Icons({ id, title, poster, showDetails }) {
 
 
     return (
-        <Link to={`/${id}`}>
+        <Link to={`/movie/${id}`}>
             <h3>{title}</h3>
             <img className="imageCard" src={poster}/>
         </Link>

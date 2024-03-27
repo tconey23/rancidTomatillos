@@ -3,23 +3,29 @@ import { useEffect, useState } from 'react'
 import Movies from '../Movies/Movies'
 import ErrorHandling from '../ErrorHandling/ErrorHandling'
 import MovieDetails from '../MovieDetails/MovieDetails'
-import { Routes, Route }  from 'react-router-dom'
+import { Routes, Route, useNavigate }  from 'react-router-dom'
 
 function App() {
   const [movies, setMovies] = useState([])
   
   const [serverError, setError] = useState('')
 
+  const navigate = useNavigate()
+
   function getMovies() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(resp => resp.json())
     .then(data => setMovies(data.movies))
-    .then(response => {throw new Error('Simulated 500 level error')})
-    .catch(err => {setError(err)})
+    // .then(response => {throw new Error('loading the page')})
+    .catch(err => {
+      handleError('Failed to load movies')
+    })
   }
   
-  console.log('server error', serverError)
-
+  function handleError(message) {
+    navigate('/error')
+    setError(message)
+  }
 
   useEffect(() => { 
     getMovies()
@@ -28,7 +34,7 @@ function App() {
   // function hideDetails() {
   //   setSelectedMovie('');
   // }
-
+console.log(serverError);
 
 
   
@@ -37,9 +43,10 @@ function App() {
       <h1>Rancid Tomatillos</h1>
       <Routes>
         <Route path ='/' element={<Movies movies={movies}/>}>
-          {!serverError && <Route path ='/:id' element={<MovieDetails />}/> }
-          {serverError && <Route path ='/error' element={<ErrorHandling />} /> }
+          {!serverError && <Route path ='/movie/:id' element={<MovieDetails handleError={handleError}/>}/> }
+          {serverError && <Route path ='/error' element={<ErrorHandling serverError={serverError}/>} /> }
         </Route>
+        <Route path='*' element={<ErrorHandling />} />
       </Routes>
       {/* <Movies
         movies={movies}
