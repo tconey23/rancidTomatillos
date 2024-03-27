@@ -2,15 +2,15 @@ import Icon from '../Icons/Icons'
 import PropTypes from 'prop-types';
 
 
-function Movies ( { movies, showDetails } ) {
+function Movies ( { movies } ) {
     const movieIcons = movies.map(movie => {
         return (
+            
             <Icon 
                 title={movie.title}
                 id={movie.id}
                 key={movie.id}
                 poster={movie.poster_path}
-                showDetails={showDetails}
             />
         )  
     })
@@ -22,16 +22,16 @@ function Movies ( { movies, showDetails } ) {
     )
 }
 
-Movies.propTypes = {
-    movies: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            title: PropTypes.string.isRequired,
-            poster_path: PropTypes.string.isRequired
-        })
-    ),
-    showDetails: PropTypes.func.isRequired
-}
+// Movies.propTypes = {
+//     movies: PropTypes.arrayOf(
+//         PropTypes.shape({
+//             id: PropTypes.number.isRequired,
+//             title: PropTypes.string.isRequired,
+//             poster_path: PropTypes.string.isRequired
+//         })
+//     ),
+//     showDetails: PropTypes.func.isRequired
+// }
 
 console.log('test')
 

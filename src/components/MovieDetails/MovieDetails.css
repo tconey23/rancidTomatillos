@@ -41,6 +41,15 @@
     font-style: italic;
   }
 
+  .close-details{
+    background-color: grey;
+    width: 60px;
+    border: 2px black solid;
+    margin: 5px;
+    padding: 2px;
+    box-shadow: black 1px 1px 5px;
+  }
+
   .movie-details {
     /* display: flex; */
     /* text-align: left; */
