@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Movies from '../Movies/Movies';
 import ErrorHandling from '../ErrorHandling/ErrorHandling';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import Form from '../Form/Form'
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
   return (
     <main className="App">
       <h1>Rancid Tomatillos</h1>
+      <Form />
       <Routes>
         <Route path ='/' element={<Movies movies={movies} />}>
           {!serverError && movies.length > 0 && (
