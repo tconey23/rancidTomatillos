@@ -40,7 +40,7 @@ function Movies ( { movies } ) {
 //     showDetails: PropTypes.func.isRequired
 // }
 
-console.log('test')
+// console.log('test')
 
 export default Movies
 

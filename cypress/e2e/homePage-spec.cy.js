@@ -76,3 +76,4 @@ describe('home page', () => {
     .contains('h2', 'Money Plane') 
   })
 })
+

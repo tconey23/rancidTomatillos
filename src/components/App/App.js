@@ -1,68 +1,71 @@
 import '../App/App.css'; 
-import { useEffect, useState } from 'react'
-import Movies from '../Movies/Movies'
-import ErrorHandling from '../ErrorHandling/ErrorHandling'
-import MovieDetails from '../MovieDetails/MovieDetails'
-import { Routes, Route }  from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import Movies from '../Movies/Movies';
+import ErrorHandling from '../ErrorHandling/ErrorHandling';
+import MovieDetails from '../MovieDetails/MovieDetails';
+import Form from '../Form/Form'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
 function App() {
-  const [movies, setMovies] = useState([])
+  const [allMovies, setAllMovies] = useState([])
+  const [displayedMovies, setDisplayedMovies] = useState([]);
+  const [serverError, setServerError] = useState('');
   
-  const [serverError, setError] = useState('')
+  const navigate = useNavigate();
+  const location = useLocation();
 
   function getMovies() {
+    console.log('FETCH')
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(resp => resp.json())
-    .then(data => setMovies(data.movies))
-    .then(response => {throw new Error('Simulated 500 level error')})
-    .catch(err => {setError(err)})
+      .then(resp => {
+        if (!resp.ok) {
+          throw new Error('Failed to fetch movies');
+        }
+        return resp.json();
+      })
+      .then(data => {
+        setDisplayedMovies(data.movies);
+        setAllMovies(data.movies)
+      })
+      .catch(err => {
+        handleError('Failed to load movies');
+      });
   }
   
-  console.log('server error', serverError)
+  function handleError(message) {
+    setServerError(message); // Set serverError message
+    navigate('/error');
+  }
 
+  function filterMovies(text) {
+      const filteredMovies = allMovies.filter((movie) => {
+        const lowerTitle = movie.title.toLowerCase();
+
+        return lowerTitle.includes(text.toLowerCase())
+      })
+
+      setDisplayedMovies(filteredMovies)
+  }
 
   useEffect(() => { 
-    getMovies()
-  }, [])
+    getMovies();
+  }, []);
 
-  // function hideDetails() {
-  //   setSelectedMovie('');
-  // }
-
-
-
-  
   return (
     <main className="App">
       <h1>Rancid Tomatillos</h1>
+      <Form filterMovies={filterMovies} />
       <Routes>
-        <Route path ='/' element={<Movies movies={movies}/>}>
-          {!serverError && <Route path ='/:id' element={<MovieDetails />}/> }
-          {serverError && <Route path ='/error' element={<ErrorHandling />} /> }
+        <Route path ='/' element={<Movies movies={displayedMovies} />}>
+          {!serverError && displayedMovies.length > 0 && (
+            <Route path ='/movie/:id' element={<MovieDetails handleError={handleError} />} />
+          )}
+          {serverError && <Route path ='/error' element={<ErrorHandling serverError={serverError} />} />}
         </Route>
+        <Route path='*' element={<ErrorHandling pathError={`rancidtomatillos${location.pathname} could not be found`} />} /> 
       </Routes>
-      {/* <Movies
-        movies={movies}
-        showDetails={showDetails}
-      />
-      
-      {selectedMovie &&
-        <MovieDetails 
-          selectedMovie={selectedMovie}
-          hideDetails={hideDetails}
-      />}
-
-
-      {serverError &&
-        <ErrorHandling
-          serverError={serverError}
-        />
-      } */}
-
     </main>
   )
 }
-
-console.log('test')
 
 export default App
