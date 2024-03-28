@@ -1,52 +1,54 @@
 import '../App/App.css'; 
-import { useEffect, useState } from 'react'
-import Movies from '../Movies/Movies'
-import ErrorHandling from '../ErrorHandling/ErrorHandling'
-import MovieDetails from '../MovieDetails/MovieDetails'
-import { Routes, Route, useNavigate }  from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import Movies from '../Movies/Movies';
+import ErrorHandling from '../ErrorHandling/ErrorHandling';
+import MovieDetails from '../MovieDetails/MovieDetails';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
 function App() {
-  const [movies, setMovies] = useState([])
-  
-  const [serverError, setError] = useState('')
+  const [movies, setMovies] = useState([]);
+  const [serverError, setServerError] = useState('');
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
 
   function getMovies() {
+    console.log('FETCH')
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(resp => resp.json())
-    .then(data => setMovies(data.movies))
-    // .then(response => {throw new Error('loading the page')})
-    .catch(err => {
-      handleError('Failed to load movies')
-    })
+      .then(resp => {
+        if (!resp.ok) {
+          throw new Error('Failed to fetch movies');
+        }
+        return resp.json();
+      })
+      .then(data => {
+        setMovies(data.movies);
+      })
+      .catch(err => {
+        handleError('Failed to load movies');
+      });
   }
   
   function handleError(message) {
-    navigate('/error')
-    setError(message)
+    setServerError(message); // Set serverError message
+    navigate('/error');
   }
 
   useEffect(() => { 
-    getMovies()
-  }, [])
+    getMovies();
+  }, []);
 
-  // function hideDetails() {
-  //   setSelectedMovie('');
-  // }
-console.log(serverError);
-
-
-  
   return (
     <main className="App">
       <h1>Rancid Tomatillos</h1>
       <Routes>
-        <Route path ='/' element={<Movies movies={movies}/>}>
-          {!serverError && <Route path ='/movie/:id' element={<MovieDetails handleError={handleError}/>}/> }
-          {serverError && <Route path ='/error' element={<ErrorHandling serverError={serverError}/>} /> }
+        <Route path ='/' element={<Movies movies={movies} />}>
+          {!serverError && movies.length > 0 && (
+            <Route path ='/movie/:id' element={<MovieDetails handleError={handleError} />} />
+          )}
+          {serverError && <Route path ='/error' element={<ErrorHandling serverError={serverError} />} />}
         </Route>
-        <Route path='*' element={<ErrorHandling />} />
+        <Route path='/*' element={<ErrorHandling pathError={`rancidtomatillos${location.pathname} could not be found`} />} /> 
       </Routes>
       {/* <Movies
         movies={movies}
@@ -65,11 +67,10 @@ console.log(serverError);
           serverError={serverError}
         />
       } */}
-
     </main>
   )
 }
 
-console.log('test')
+// console.log('test')
 
 export default App

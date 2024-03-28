@@ -20,7 +20,7 @@ function Icons({ id, title, poster, showDetails }) {
 //     showDetails: PropTypes.func
 // }
 
-console.log('test')
+// console.log('test')
 
 export default Icons
 
