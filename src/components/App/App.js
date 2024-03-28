@@ -48,29 +48,10 @@ function App() {
           )}
           {serverError && <Route path ='/error' element={<ErrorHandling serverError={serverError} />} />}
         </Route>
-        <Route path='/*' element={<ErrorHandling pathError={`rancidtomatillos${location.pathname} could not be found`} />} /> 
+        <Route path='*' element={<ErrorHandling pathError={`rancidtomatillos${location.pathname} could not be found`} />} /> 
       </Routes>
-      {/* <Movies
-        movies={movies}
-        showDetails={showDetails}
-      />
-      
-      {selectedMovie &&
-        <MovieDetails 
-          selectedMovie={selectedMovie}
-          hideDetails={hideDetails}
-      />}
-
-
-      {serverError &&
-        <ErrorHandling
-          serverError={serverError}
-        />
-      } */}
     </main>
   )
 }
-
-// console.log('test')
 
 export default App
