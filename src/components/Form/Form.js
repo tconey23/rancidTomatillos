@@ -6,9 +6,11 @@ function Form ( { filterMovies } ) {
 
     function handleInput(event) {
         const input = event.target.value;
-
-            setInputText(input)
-            filterMovies(inputText)
+        console.log({input})
+        filterMovies(input)
+        setInputText(input)
+            
+        
     }
 
     return (

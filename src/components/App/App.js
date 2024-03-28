@@ -6,9 +6,12 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import Form from '../Form/Form'
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
+let moviesArray = []
+
 function App() {
   const [movies, setMovies] = useState([]);
   const [serverError, setServerError] = useState('');
+  
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,6 +26,8 @@ function App() {
         return resp.json();
       })
       .then(data => {
+        moviesArray = data.movies
+        console.log({moviesArray})
         setMovies(data.movies);
       })
       .catch(err => {
@@ -35,6 +40,16 @@ function App() {
     navigate('/error');
   }
 
+  function filterMovies(text) {
+      console.log("inside Filter", moviesArray)
+      const filteredMovies = moviesArray.filter((movie) => {
+        
+        return movie.title.includes(text)
+      })
+
+      setMovies(filteredMovies)
+  }
+
   useEffect(() => { 
     getMovies();
   }, []);
@@ -42,7 +57,7 @@ function App() {
   return (
     <main className="App">
       <h1>Rancid Tomatillos</h1>
-      <Form />
+      <Form filterMovies={filterMovies} />
       <Routes>
         <Route path ='/' element={<Movies movies={movies} />}>
           {!serverError && movies.length > 0 && (
