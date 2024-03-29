@@ -67,7 +67,11 @@ describe('home page', () => {
       .should('have.length', 6)
       .contains('h3', 'Money Plane')
       .get('a')
-      .should('exist', '.image-card')
+      .find('img').should('have.attr', 'src').should('include', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
+      .get('a').eq(5)
+      .contains('h3', 'Cats & Dogs 3: Paws Unite')
+      .get('a').eq(5)
+      .find('img').should('have.attr', 'src').should('include', 'https://image.tmdb.org/t/p/original//4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg')
     })
 
 
