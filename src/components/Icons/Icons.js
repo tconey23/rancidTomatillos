@@ -1,15 +1,15 @@
 import './Icons.css'
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Icons({ id, title, poster }) {
 
 
     return (
-        <Link to={`/movie/${id}`}>
+        <NavLink to={`/movie/${id}`}>
             <h3>{title}</h3>
             <img className="imageCard" src={poster}/>
-        </Link>
+        </NavLink>
     )
 }
 

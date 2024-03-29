@@ -24,12 +24,16 @@ function App() {
         return resp.json();
       })
       .then(data => {
-        setDisplayedMovies(data.movies);
-        setAllMovies(data.movies)
+        setMovieState(data.movies)
       })
       .catch(err => {
         handleError('Failed to load movies');
       });
+  }
+
+  function setMovieState(movies) {
+    setDisplayedMovies(movies);
+    setAllMovies(movies)
   }
   
   function handleError(message) {
