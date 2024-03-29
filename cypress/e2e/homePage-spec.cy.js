@@ -56,7 +56,6 @@ describe('home page', () => {
       .visit('http://localhost:3000/')
     })
 
-    //Check first and last movie details
     //Check the poster URL for accuracy
     //Thoroughly check movie details for displayed movie
 
@@ -85,7 +84,7 @@ describe('home page', () => {
             "title": "Money Plane",
             "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
             "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-            "release_date": "2022-10-19",
+            "release_date": "2022-09-15",
             "overview": "Money - plane - what esle should we say?",
             "genres": [
                 "Action",
@@ -103,8 +102,16 @@ describe('home page', () => {
     cy.get('a')
     .contains('h3', 'Money Plane')
     .click()
-    .get('.modal-content')
-    .contains('h2', 'Money Plane') 
+    .url().should('eq', 'http://localhost:3000/movie/694919')
+    cy.get('.modal-content').contains('h2', 'Money Plane')
+    cy.get('.modal-content').contains('h3', 'Its a movie about a plane with money on it')
+    cy.get('.modal-content').contains('p', 'Money - plane - what esle should we say?')
+    cy.get('.modal-content').contains('p', 'Release Date: 2022-09-15')
+    cy.get('.modal-content').contains('p', 'Budget: $50000000')
+    cy.get('.modal-content').contains('p', 'Runtime: 135 mins')
+    cy.get('.modal-content').contains('p', 'Rating: 7')
+    cy.get('.modal-content').contains('p', 'Revenue: $91000000')
+   
   })
 })
 
