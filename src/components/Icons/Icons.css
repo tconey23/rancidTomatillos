@@ -43,9 +43,15 @@
 .icons-container a { 
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     flex-wrap: wrap;
     align-items: center;
     padding: 6px;
+    border: 3px solid black;
+    margin: 10px;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 20px;
 }
 
 .imageCard {
@@ -56,10 +62,10 @@
     transition: box-shadow 0.1s ease-in-out, border-radius 0.1s ease-in-out;
 }
 
-h3{
-    white-space: nowrap;
+h3 {
     overflow: hidden;
     text-overflow: ellipsis;
+    color: black;
 }
 
 .icons-container a:hover {

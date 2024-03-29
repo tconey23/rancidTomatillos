@@ -22,7 +22,7 @@ function App() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(resp => {
         if (!resp.ok) {
-          throw new Error('Failed to fetch movies');
+          throw new Error('Failed to load movies');
         }
         return resp.json();
       })
@@ -30,7 +30,7 @@ function App() {
         setMovieState(data.movies)
       })
       .catch(err => {
-        handleError('Failed to load movies');
+        handleError(err.message);
       });
   }
 
@@ -87,8 +87,10 @@ function App() {
 
   return (
     <main className="App">
-      <h1>Rancid Tomatillos</h1>
-      <Form filterMovies={filterMovies} />
+      <header>
+        <h1>Rancid Tomatillos</h1>
+        <Form filterMovies={filterMovies} />
+      </header>
       <Routes>
         <Route path ='/' element={<Movies movies={displayedMovies} />}>
           {!serverError && displayedMovies.length > 0 && (
