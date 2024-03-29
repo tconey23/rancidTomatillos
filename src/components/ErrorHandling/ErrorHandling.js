@@ -1,4 +1,5 @@
 import "./ErrorHandling.css"
+import PropTypes from 'prop-types'
 
 function ErrorHandling({ serverError, pathError }) {
 
@@ -25,5 +26,13 @@ function ErrorHandling({ serverError, pathError }) {
     </>
   )
 }
+
+ErrorHandling.propTypes = {
+  serverError: PropTypes.string,
+  pathError: PropTypes.string
+}
+
+// I think the app would technically work without the error strings so I left out .isRequired
+// not 100% sure if that's right though.
 
 export default ErrorHandling

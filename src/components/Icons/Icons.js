@@ -1,8 +1,8 @@
 import './Icons.css'
 import PropTypes from 'prop-types';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function Icons({ id, title, poster, showDetails }) {
+function Icons({ id, title, poster }) {
 
 
     return (
@@ -13,14 +13,11 @@ function Icons({ id, title, poster, showDetails }) {
     )
 }
 
-// Icons.propTypes = {
-//     id: PropTypes.number,
-//     title: PropTypes.string,
-//     poster: PropTypes.string,
-//     showDetails: PropTypes.func
-// }
-
-// console.log('test')
+Icons.propTypes = {
+    id: PropTypes.number,
+    title: PropTypes.string,
+    poster: PropTypes.string
+}
 
 export default Icons
 

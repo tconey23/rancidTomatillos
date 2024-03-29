@@ -24,23 +24,19 @@ function Movies ( { movies } ) {
                 {movieIcons}
             </div>
             <Outlet />
-            {/* <Outlet name={<ErrorHandling />}/> */}
         </>
     )
 }
 
-// Movies.propTypes = {
-//     movies: PropTypes.arrayOf(
-//         PropTypes.shape({
-//             id: PropTypes.number.isRequired,
-//             title: PropTypes.string.isRequired,
-//             poster_path: PropTypes.string.isRequired
-//         })
-//     ),
-//     showDetails: PropTypes.func.isRequired
-// }
-
-// console.log('test')
+Movies.propTypes = {
+    movies: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired,
+            poster_path: PropTypes.string.isRequired
+        })
+    )
+}
 
 export default Movies
 
