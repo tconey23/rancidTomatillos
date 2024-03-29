@@ -1,5 +1,6 @@
 import "./ErrorHandling.css"
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 function ErrorHandling({ serverError, pathError }) {
 
@@ -9,9 +10,12 @@ function ErrorHandling({ serverError, pathError }) {
                             Please try again later`
   return (
     <>
-    {serverError && 
+    {serverError &&
       <div className="error-modal">
         <div>
+          <Link to={`/`}>
+            <button className="close-details">Back to home</button>
+          </Link>
           <h3>{userMessage}</h3>
         </div>
       </div>
@@ -19,6 +23,9 @@ function ErrorHandling({ serverError, pathError }) {
     {pathError &&
       <div className="error-modal">
       <div>
+        <Link to={`/`}>
+            <button className="close-details">Back to home</button>
+        </Link>
         <h3>{pathError}</h3>
       </div>
     </div>
