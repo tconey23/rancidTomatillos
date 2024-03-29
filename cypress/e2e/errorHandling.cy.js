@@ -1,5 +1,5 @@
 describe('eError handling', () => {
-
+   
   it('Should display an error when the home page doesnt load',  () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       statusCode: 500,
@@ -7,6 +7,7 @@ describe('eError handling', () => {
     .visit('http://localhost:3000')
     .get('.error-modal > div > h3')
     .contains('We\'re sorry! Failed to load movies.')
+    cy.url().should('eq', 'http://localhost:3000/error');
   })
 
   it('Should display an error when a bad path is entered', () => {
