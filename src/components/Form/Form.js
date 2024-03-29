@@ -1,5 +1,5 @@
 import '../Form/Form.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 function Form ( { filterMovies } ) {
@@ -10,7 +10,6 @@ function Form ( { filterMovies } ) {
         console.log({input})
         filterMovies(input)
         setInputText(input)
-            
         
     }
 

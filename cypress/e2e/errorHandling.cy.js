@@ -7,7 +7,7 @@ describe('eError handling', () => {
     .visit('http://localhost:3000')
     .get('.error-modal > div > h3')
     .contains('We\'re sorry! Failed to load movies.')
-    cy.url().should('eq', 'http://localhost:3000/error');
+    .url().should('eq', 'http://localhost:3000/error');
   })
 
   it('Should display an error when a bad path is entered', () => {
@@ -63,5 +63,6 @@ describe('eError handling', () => {
     .get('[href="/movie/694919"] > .imageCard').click()
     .get('.error-modal > div > h3')
     .contains('Failed to get movie')
+    .url().should('eq', 'http://localhost:3000/error');
   })
 })
