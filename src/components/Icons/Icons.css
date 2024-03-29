@@ -1,45 +1,84 @@
+.App{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .icons-container {
-    padding: 5%;
+    grid-template-columns: repeat(5, 20%);
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-    justify-items: center;
+}
+
+@media screen and (max-width: 1800px) {
+    .icons-container {
+        grid-template-columns: repeat(4, 25%);
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .icons-container {
+        grid-template-columns: repeat(3, 33%);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .icons-container {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .icons-container {
+        padding: 5%;
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+        grid-gap: 10px;
+    }
 }
 
 .icons-container a { 
-    perspective: 10000px;
-    width: 200px;
-    display: inline-block;
-    /* transition: perspective 1s ease */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 6px;
+    border: 3px solid black;
+    margin: 10px;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 20px;
 }
 
 .imageCard {
-    box-shadow: black 5px 9px 18px;
     position: relative;
     top: -19px;
-    transform: rotateX(10deg); 
-    transform-origin: center bottom;
-    width: 200px;
-    height: 230px;
-    border-radius: 10px;
+    width: 300px;
     margin-top: 15px;
-    /* transition: box-shadow 1.8s ease; */
+    transition: box-shadow 0.1s ease-in-out, border-radius 0.1s ease-in-out;
 }
 
-h3{
-    white-space: nowrap;
+h3 {
     overflow: hidden;
     text-overflow: ellipsis;
+    color: black;
 }
 
-/* .icons-container a:hover {
-    perspective: 200px;
+.icons-container a:hover {
+    img{ 
+        position: relative;
+        top: -23px;
+        scale: 1.02;
+        box-shadow: black 5px 9px 18px;
+        /* animation: spin 1s ease-in-out infinite; */
+    }
 }
 
-.icons-container a:not(:hover) {
-    perspective: 10000px;
+.active img{
+    scale: 1.02;
+    box-shadow: black 5px 9px 18px;
 }
-
-.icons-container a:hover .imageCard {
-    box-shadow: black 2px -3px 20px 5px;
-} */

@@ -17,14 +17,17 @@ function Movies ( { movies } ) {
             />
         )  
     })
-    
+
     return (
-        <>
+        
+        <main>
+        
+            
             <div className='icons-container'>
                 {movieIcons}
             </div>
             <Outlet />
-        </>
+        </main>
     )
 }
 

@@ -1,10 +1,13 @@
 describe('eError handling', () => {
-
+   
   it('Should display an error when the home page doesnt load',  () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       statusCode: 500,
     })
     .visit('http://localhost:3000')
+    .get('.error-modal > div > h3')
+    .contains('We\'re sorry! Failed to load movies.')
+    .url().should('eq', 'http://localhost:3000/error');
   })
 
   it('Should display an error when a bad path is entered', () => {
@@ -18,12 +21,15 @@ describe('eError handling', () => {
         "title": "Money Plane",
         "average_rating": 6.666666666666667,
         "release_date": "2020-09-29"
-      }]
-    }
+        }]
+      }
     })
-    .visit('http://localhost:3000/movies/blackadam')
+   .intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/potatoes', {
+      statusCode: 404,
+    })
+    .visit('http://localhost:3000/movies/potatoes')
     .get('.error-modal > div > h3')
-    .contains('rancidtomatillos/movies/blackadam could not be found')
+    .contains('rancidtomatillos/movies/potatoes could not be found')
   })
 
   it('Should display an error when a movie doesnt load',  () => {
@@ -57,5 +63,6 @@ describe('eError handling', () => {
     .get('[href="/movie/694919"] > .imageCard').click()
     .get('.error-modal > div > h3')
     .contains('Failed to get movie')
+    .url().should('eq', 'http://localhost:3000/error');
   })
 })

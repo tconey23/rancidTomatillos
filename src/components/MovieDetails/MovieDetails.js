@@ -7,29 +7,21 @@ function MovieDetails({handleError}) {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
 
-  // const selectMovie = async (movId) => {
-  //     const movie = await fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movId}`)
-  //         .then(response => response.json())
-  //         .then(data => {
-  //             console.log(data.movie);
-  //             setMovie(data.movie)
-  //         })
-  //         .catch(error => {
-  //             console.error('Error fetching movie:', error);
-  //         });
-  // }
-
   function selectMovie(movId) {
     const movie = fetch(
       `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movId}`
     )
-      .then((response) => response.json())
+      .then((response) => {
+        if(!response.ok) {
+          throw new Error('Failed to get movie')
+        }
+          return response.json()
+      })
       .then((data) => {
         setMovie(data.movie)
       })
-    //   .then(response => {throw new Error('loading the movie')})
       .catch((error) => {
-        handleError('Failed to get movie')
+        handleError(error.message)
       })
   }
 
@@ -42,9 +34,9 @@ function MovieDetails({handleError}) {
       {movie && (
         <div className="modal-content">
           <Link to={`/`}>
-            <div className="close-details">Close</div>
+            <button className="close-details">Close</button>
           </Link>
-          <img src={movie.backdrop_path} alt="Backdrop"></img>
+          <img src={movie.backdrop_path} alt={`Backdrop for ${movie.title}`}></img>
           <h2>{movie.title}</h2>
           <h3>"{movie.tagline}"</h3>
           <div className="movie-details">
