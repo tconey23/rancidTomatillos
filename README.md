@@ -53,11 +53,21 @@ PREVIEW LINK HERE
     
 - Wins:
 
-
+  - Adapting Router mid-project to refactor a working project to a better working project
+  - Gaining confidence with Cypress to thoroughly test user flow
+  - Dynamic search for filtering movies
+  - Implementation of a modal with conditional rendering in Router
+  - Integrating fetch requests into app with specific calls for different element events
   
 - Challenges:
-  
 
+  - Introduction of three new technologies and full app refactoring midway through project
+  - Responsive design, accounting for different screen types with a grid layout
+  - Gaining comfortability with Cypress syntax 
+  - Error handling with Router and intercepts in Cypress
 
 ## Future Improvements:
+
+  - Second round of responsiveness adaptation
+  - Further breakdown of functionality for more seemless developer navigation
 
