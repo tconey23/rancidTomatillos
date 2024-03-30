@@ -2,7 +2,7 @@ import "./ErrorHandling.css"
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-function ErrorHandling({ serverError, pathError }) {
+function ErrorHandling({ serverError, pathError, resetNetworkError }) {
 
   console.log('ERROR')
 
@@ -14,7 +14,7 @@ function ErrorHandling({ serverError, pathError }) {
       <div className="error-modal">
         <div>
           <Link to={`/`}>
-            <button className="close-details">Back to home</button>
+            <button onClick={resetNetworkError} className="close-details">Back to home</button>
           </Link>
           <h3>{userMessage}</h3>
         </div>

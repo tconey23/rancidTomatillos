@@ -41,7 +41,11 @@ function App() {
   
   function handleError(message) {
     setServerError(message); // Set serverError message
-    navigate('/error');
+    navigate('/error')
+  }
+
+  function resetNetworkError() {
+    setServerError('')
   }
 
   function filterMovies(text) {
@@ -96,7 +100,7 @@ function App() {
           {!serverError && displayedMovies.length > 0 && (
             <Route path ='/movie/:id' element={<MovieDetails handleError={handleError} />} />
           )}
-          {serverError && <Route path ='/error' element={<ErrorHandling serverError={serverError} />} />}
+          {serverError && <Route path ='/error' element={<ErrorHandling serverError={serverError} resetNetworkError={resetNetworkError} />} />}
         </Route>
         <Route path='*' element={<ErrorHandling pathError={`rancidtomatillos${location.pathname} could not be found`} />} /> 
       </Routes>

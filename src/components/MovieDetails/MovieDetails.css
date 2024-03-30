@@ -1,69 +1,67 @@
 .modal {
-    position: fixed; /* Stay in place */ 
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+  display:flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
 
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 4px solid black;
-    width: 40%; /* Could be more or less, depending on screen size */
-    border-radius: 20px;
-  }
+.modal-content {
+  background-color: #fefefe;
+  margin-top: 5%;
+  padding: 20px;
+  border: 4px solid black;
+  width: 40%;
+  border-radius: 20px;
+  height: fit-content;
+}
 
-  .modal-content img {
-    width: 100%;
-    border: 3px solid black;
-  }
+.modal-content img {
+  width: 100%;
+  border: 3px solid black;
+}
 
-  .modal-content p {
-    margin-top: 0;
-    margin-bottom: 5px;
-  }
+.modal-content p {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
 
-  .modal-content h2 {
-    margin-bottom: 0;
-    margin-top: 5px;
-    font-size: 2rem;
-  }
+.modal-content h2 {
+  margin-bottom: 0;
+  margin-top: 5px;
+  font-size: 2rem;
+}
 
-  .modal-content h3 {
-    margin-top: 5px;
-    margin-bottom: 15px;
-    font-style: italic;
-  }
+.modal-content h3 {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
 
-  .close-details{
-    background-color: grey;
-    width: 60px;
-    border: 2px black solid;
-    margin: 5px;
-    padding: 2px;
-    box-shadow: black 1px 1px 5px;
-  }
+.close-details{
+  background-color: grey;
+  width: 60px;
+  border: 2px black solid;
+  margin: 5px;
+  padding: 2px;
+  box-shadow: black 1px 1px 5px;
+}
 
-  .movie-details {
-    /* display: flex; */
-    /* text-align: left; */
-  }
+.details--stats {
+  margin-right: 15px;
+}
 
-  .details--stats {
-    margin-right: 15px;
-  }
+.overview {
+  font-style: italic;
+  margin-bottom: 15px !important;
+}
 
-  .overview {
-    font-style: italic;
-    margin-bottom: 15px !important;
-  }
-
-  span {
-    font-weight: bold;
-  }
+span {
+  font-weight: bold;
+}
