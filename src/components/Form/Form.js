@@ -1,5 +1,5 @@
 import '../Form/Form.css';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 
 function Form ( { filterMovies } ) {
@@ -7,7 +7,6 @@ function Form ( { filterMovies } ) {
 
     function handleInput(event) {
         const input = event.target.value;
-        console.log({input})
         filterMovies(input)
         setInputText(input)
         
@@ -25,8 +24,5 @@ function Form ( { filterMovies } ) {
 Form.propTypes = {
     filterMovies: PropTypes.func.isRequired
 }
-
-// using .isRequired because the app would probably break if filterMovies was anything but a function.
-
 
 export default Form

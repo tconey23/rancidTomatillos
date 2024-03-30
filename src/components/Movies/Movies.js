@@ -1,14 +1,10 @@
 import Icon from '../Icons/Icons'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import { Outlet } from 'react-router-dom'
-import MovieDetails from '../MovieDetails/MovieDetails';
-import ErrorHandling from '../ErrorHandling/ErrorHandling';
-
 
 function Movies ( { movies } ) {
     const movieIcons = movies.map(movie => {
-        return (
-            
+        return (     
             <Icon 
                 title={movie.title}
                 id={movie.id}
@@ -18,11 +14,8 @@ function Movies ( { movies } ) {
         )  
     })
 
-    return (
-        
+    return (      
         <main>
-        
-            
             <div className='icons-container'>
                 {movieIcons}
             </div>
@@ -30,6 +23,7 @@ function Movies ( { movies } ) {
         </main>
     )
 }
+
 
 Movies.propTypes = {
     movies: PropTypes.arrayOf(

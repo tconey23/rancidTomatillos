@@ -3,9 +3,6 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 function ErrorHandling({ serverError, pathError, resetNetworkError }) {
-
-  console.log('ERROR')
-
   const userMessage = `We're sorry! ${serverError}.\n  
                             Please try again later`
   return (
@@ -38,8 +35,5 @@ ErrorHandling.propTypes = {
   serverError: PropTypes.string,
   pathError: PropTypes.string
 }
-
-// I think the app would technically work without the error strings so I left out .isRequired
-// not 100% sure if that's right though.
 
 export default ErrorHandling

@@ -1,9 +1,8 @@
 import './Icons.css'
-import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
 
 function Icons({ id, title, poster }) {
-
 
     return (
         <NavLink to={`/movie/${id}`}>
