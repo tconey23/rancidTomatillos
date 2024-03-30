@@ -10,8 +10,7 @@
 
 ## Preview:
 <div align="center">
-  
-PREVIEW LINK HERE
+<video src='./public/Mar-30-2024 09-22-24.mp4' width="320" height="240" controls></video>
 
 </div>
 
@@ -28,10 +27,7 @@ PREVIEW LINK HERE
 
 ## Installation Instructions:
 - clone the repo to your machine
-    
-    ```
-    git clone git@github.com:tconey23/rancidTomatillos.git
-    ```
+  
     
 - run `cd rancidTomatillos`
 - run `npm install`
