@@ -10,7 +10,9 @@
 
 ## Preview:
 <div align="center">
-<video src='./public/Mar-30-2024 09-22-24.mp4' width="320" height="240" controls></video>
+
+
+![](https://github.com/tconey23/rancidTomatillos/blob/main/Mar-30-2024_09-22-24.mp4_V1.gif)
 
 </div>
 
