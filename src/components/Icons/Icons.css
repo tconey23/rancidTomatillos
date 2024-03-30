@@ -68,13 +68,14 @@
     transition: box-shadow 0.1s ease-in-out, border-radius 0.1s ease-in-out;
 }
 
-h3 {
+h2 {
     width: 300px;
     text-overflow: ellipsis;
     color: black;
     position: absolute;
     top: 4%;
     margin-top:0;
+    font-size: 18px;
 }
 
 .icons-container a:hover {

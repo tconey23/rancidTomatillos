@@ -24,4 +24,23 @@ form {
 
 input {
   margin-left: 10px;
+  border-radius: 5px;
+  padding: 3px;
+  border: none;
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+      flex-direction: column;
+      height: 15vh;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+
+  form {
+    position: relative;
+  }
 }

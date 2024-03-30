@@ -6,7 +6,7 @@ function Icons({ id, title, poster }) {
 
     return (
         <NavLink to={`/movie/${id}`}>
-            <h3>{title}</h3>
+            <h2>{title}</h2>
             <img className="imageCard" src={poster} alt={`Poster for ${title}`}/>
         </NavLink>
     )
