@@ -34,11 +34,11 @@ function MovieDetails({handleError}) {
       {movie && (
         <div className="modal-content">
           <Link to={`/`}>
-            <button className="close-details">Close</button>
+            <button className="close-details" tabindex='0'>Close</button>
           </Link>
           <img src={movie.backdrop_path} alt={`Backdrop for ${movie.title}`}></img>
-          <h2>{movie.title}</h2>
-          <h3>"{movie.tagline}"</h3>
+          <h3>{movie.title}</h3>
+          <h4>"{movie.tagline}"</h4>
           <div className="movie-details">
             <p className="overview">{movie.overview}</p>
             <div className="details--stats">

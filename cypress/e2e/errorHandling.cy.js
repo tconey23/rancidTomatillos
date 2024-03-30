@@ -7,7 +7,11 @@ describe('eError handling', () => {
     .visit('http://localhost:3000')
     .get('.error-modal > div > h3')
     .contains('We\'re sorry! Failed to load movies.')
-    .url().should('eq', 'http://localhost:3000/error');
+    .url().should('eq', 'http://localhost:3000/error')
+    .get('.error-modal > div')
+    .contains('button', 'Back to home')
+    .click()
+    .url().should('eq', 'http://localhost:3000/')
   })
 
   it('Should display an error when a bad path is entered', () => {
