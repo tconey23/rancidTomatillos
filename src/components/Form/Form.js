@@ -9,7 +9,6 @@ function Form ( { filterMovies } ) {
         const input = event.target.value;
         filterMovies(input)
         setInputText(input)
-        
     }
 
     return (
