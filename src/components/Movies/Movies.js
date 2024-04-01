@@ -1,4 +1,5 @@
 import Icon from '../Icons/Icons'
+import './Movies.css'
 import PropTypes from 'prop-types'
 import { Outlet } from 'react-router-dom'
 
@@ -15,12 +16,12 @@ function Movies ( { movies } ) {
     })
 
     return (      
-        <main>
+        <movies-container>
             <div className='icons-container'>
                 {movieIcons}
             </div>
             <Outlet />
-        </main>
+        </movies-container>
     )
 }
 

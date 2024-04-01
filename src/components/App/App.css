@@ -5,18 +5,31 @@
   background-attachment: fixed;
   background-repeat: repeat;
   letter-spacing: 1px;
+  font-family: Raleway, sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
 }
 main {
   width: 100%;
 }
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255);
-  border-bottom: 2px solid black;
+header-container {
+  display: flex;
+  justify-content: center;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+header {
+  flex-direction: column;
+  background-color: white;
+  width: fit-content;
+  margin: 5vh;
+  padding: 0px 30px;
+  border: 2px solid black;
   height: 25vh;
   display: flex;
   align-items: center;
@@ -26,8 +39,7 @@ header {
 h1 {
   letter-spacing: 5px;
   font-size: 7vh;
-  font-weight: 900;
-  color: black;
+  font-weight: 700;
   margin-bottom: 10px;
     margin-top: 15px;
 }

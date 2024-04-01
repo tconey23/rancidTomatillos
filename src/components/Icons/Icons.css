@@ -1,19 +1,10 @@
-.App {
-  font-family: Raleway, sans-serif;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-}
 
 .icons-container {
   padding-top: 30px;
-    display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   flex-wrap: wrap;
   background-color: rgba(255, 255, 255, 0.5);
 }
@@ -21,18 +12,21 @@
 @media screen and (max-width: 1800px) {
   .icons-container {
     grid-template-columns: repeat(4, 25%);
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 1500px) {
   .icons-container {
     grid-template-columns: repeat(3, 33%);
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .icons-container {
     grid-template-columns: repeat(2, 50%);
+    width: 100%;
   }
 }
 
@@ -42,7 +36,7 @@
     display: grid;
     grid-template-columns: repeat(1, 100%);
     grid-gap: 10px;
-    min-width: 300px;
+    /* min-width: 300px; */
     hr {
       margin-bottom: 15px;
     }
@@ -60,7 +54,7 @@
     margin: 30px;
     border: 2px solid black;
     background-color: white;
-    max-width: 550px;
+    /* max-width: 550px; */
     min-height: 540px;
     box-shadow: rgb(81, 81, 81) 1px 3px 7px;
 }
