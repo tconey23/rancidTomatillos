@@ -14,7 +14,7 @@ function Form ( { filterMovies } ) {
 
     return (
         <form>
-            <label>Filter Movies:
+            <label>Search Movies:
                 <input type='text' onChange={event => handleInput(event)} placeholder="Movie Title" value={inputText}></input>
             </label>
         </form>
