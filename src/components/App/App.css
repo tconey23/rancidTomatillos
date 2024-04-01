@@ -27,13 +27,14 @@ header {
   flex-direction: column;
   background-color: white;
   width: fit-content;
-  margin: 5vh;
-  padding: 0px 30px;
+  margin: 6vh;
+  padding: 15px 40px;
   border: 2px solid black;
-  height: 25vh;
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: rgb(111, 111, 111) 1px 3px 7px;
 }
 
 h1 {
