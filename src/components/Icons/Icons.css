@@ -1,6 +1,5 @@
 
 .icons-container {
-  padding-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +35,6 @@
     display: grid;
     grid-template-columns: repeat(1, 100%);
     grid-gap: 10px;
-    /* min-width: 300px; */
     hr {
       margin-bottom: 15px;
     }

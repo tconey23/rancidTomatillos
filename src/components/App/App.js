@@ -17,7 +17,6 @@ function App() {
   const location = useLocation()
 
   function getMovies() {
-    console.log('FETCH')
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(resp => {
         if (!resp.ok) {

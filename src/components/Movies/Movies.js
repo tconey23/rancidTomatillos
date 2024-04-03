@@ -16,13 +16,14 @@ function Movies ( { movies } ) {
     })
 
     return (      
-        <movies-container>
-            <div className='icons-container'>
+        <>
+            <div className='icons-container' style={{ minHeight: movieIcons.length ? 'auto' : '90vh' }}>
                 {movieIcons}
             </div>
             <Outlet />
-        </movies-container>
+        </>
     )
+    
 }
 
 

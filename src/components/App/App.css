@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
   background: url(https://static.vecteezy.com/system/resources/previews/005/498/929/original/slices-of-tomato-with-herbs-on-a-white-background-vector.jpg);
@@ -14,6 +16,7 @@
   justify-content: flex-start;
   align-items: center;
 }
+
 main {
   width: 100%;
 }
