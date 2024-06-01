@@ -17,7 +17,6 @@ function App() {
   const location = useLocation()
 
   function getMovies() {
-    console.log('FETCH')
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(resp => {
         if (!resp.ok) {
@@ -63,10 +62,12 @@ function App() {
 
   return (
     <main className="App">
-      <header>
+      <header-container>
+        <header>
         <h1>Rancid Tomatillos</h1>
         <Form filterMovies={filterMovies} />
-      </header>
+        </header>
+      </header-container>
       <Routes>
         <Route path ='/' element={<Movies movies={displayedMovies} />}>
           {!serverError && displayedMovies.length > 0 && (

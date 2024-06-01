@@ -1,4 +1,5 @@
 import Icon from '../Icons/Icons'
+import './Movies.css'
 import PropTypes from 'prop-types'
 import { Outlet } from 'react-router-dom'
 
@@ -15,13 +16,14 @@ function Movies ( { movies } ) {
     })
 
     return (      
-        <main>
-            <div className='icons-container'>
+        <>
+            <div className='icons-container' style={{ minHeight: movieIcons.length ? 'auto' : '90vh' }}>
                 {movieIcons}
             </div>
             <Outlet />
-        </main>
+        </>
     )
+    
 }
 
 

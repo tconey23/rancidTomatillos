@@ -1,38 +1,71 @@
+
+
 .App {
   text-align: center;
-}
-
-h1 {
-  font-size: 50px;
-}
-
-header {
-  background-color: black;
+  background: url(https://static.vecteezy.com/system/resources/previews/005/498/929/original/slices-of-tomato-with-herbs-on-a-white-background-vector.jpg);
+  background-size: 250px 250px;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  letter-spacing: 1px;
+  font-family: Raleway, sans-serif;
   width: 100%;
-  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+}
+header-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+header {
+  flex-direction: column;
+  background-color: white;
+  width: fit-content;
+  margin: 6vh;
+  padding: 15px 40px;
+  border: 2px solid black;
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  position: relative;
+  box-shadow: rgb(111, 111, 111) 1px 3px 7px;
 }
 
+h1 {
+  letter-spacing: 5px;
+  font-size: 7vh;
+  font-weight: 700;
+  margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+
 form {
-  position: absolute;
-  right: 3%;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 input {
+  font-family: Raleway;
   margin-left: 10px;
   border-radius: 5px;
-  padding: 3px;
-  border: none;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 0;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1350px) {
   header {
-      flex-direction: column;
-      height: 15vh;
+      height: 25vh;
   }
 
   h1 {
